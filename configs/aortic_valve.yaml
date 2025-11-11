@@ -1,0 +1,6 @@
+
+train: /nfs/Workspace/Aortic_valve_object_detection/datasets/yolo_train
+val: /nfs/Workspace/Aortic_valve_object_detection/datasets/yolo_val
+
+nc: 1
+names: ['aortic_valve']

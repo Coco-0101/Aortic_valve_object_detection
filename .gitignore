@@ -17,3 +17,4 @@ conda_envs/
 .DS_Store
 Thumbs.db
 
+.git-credentials

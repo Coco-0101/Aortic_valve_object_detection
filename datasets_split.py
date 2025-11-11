@@ -1,8 +1,8 @@
 import os
 from glob import glob
 
-
-img_src = "./datasets/preprocessed_image"
+img_src = "./datasets/training_image" # original img
+# img_src = "./datasets/preprocessed_image" # preprocessd img
 label_src = "./datasets/training_label"
 split_dir = "./datasets"
 os.makedirs(split_dir, exist_ok=True)
@@ -30,7 +30,8 @@ def collect_pairs(patient_list, dst_img_dir, dst_lbl_dir):
     for p in patient_list:
         imgs = glob(os.path.join(img_src, p, "*.png"))
         for img in imgs:
-            lbl = img.replace("preprocessed_image", "training_label").replace(".png", ".txt")
+            lbl = img.replace("training_image", "training_label").replace(".png", ".txt") # original img
+            # lbl = img.replace("preprocessed_image", "training_label").replace(".png", ".txt") # preprocessd img
             if os.path.exists(lbl):
                 # 用 symbolic link 比較省空間，也可改成 shutil.copy
                 dst_img = os.path.join(dst_img_dir, os.path.basename(img))

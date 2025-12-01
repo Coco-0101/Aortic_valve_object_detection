@@ -2,8 +2,9 @@ import os
 import random
 from glob import glob
 
-img_src = "./datasets/training_image"          # original image
-# img_src = "./datasets/preprocessed_image"    # preprocess image
+img_src = "./datasets/training_image" # original img
+# img_src = "./datasets/preprocessed_image" # preprocessd img
+
 label_src = "./datasets/training_label"
 test_src = "./datasets/testing_image"
 
@@ -74,6 +75,7 @@ def collect_pairs(patient_list, dst_img_dir, dst_lbl_dir):
     for p in patient_list:
         imgs = glob(os.path.join(img_src, p, "*.png"))
         for img in imgs:
+            
             lbl = img.replace("training_image", "training_label").replace(".png", ".txt")
             # 若是 preprocess 影像請改：
             # lbl = img.replace("preprocessed_image", "training_label").replace(".png", ".txt")
